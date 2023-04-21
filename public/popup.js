@@ -9,6 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     await navigator.clipboard.writeText(tabInfo);
-    alert("Tab info copied to clipboard!");
+    // alert("Tab info copied to clipboard!");
   });
 });
