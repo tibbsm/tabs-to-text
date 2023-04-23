@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     await navigator.clipboard.writeText(tabInfo);
-    // alert("Tab info copied to clipboard!");
     showToast("Copied", 1000);
   });
 });
