@@ -9,14 +9,16 @@ function showToast(message, duration) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.getElementById("copyButton");
-  copyButton.addEventListener("click", async () => {
-    const tabs = await chrome.tabs.query({});
-    const tabInfo = tabs.map((tab) => {
-      if (tab.url != null) {
-        tabInfo += "- " + tab.title + " | " + tab.url;
-      }
+  if (copyButton != null) {
+    copyButton.addEventListener("click", async () => {
+      const tabs = await chrome.tabs.query({});
+      const tabInfo = tabs.map((tab) => {
+        if (tab.url != null) {
+          tabInfo += "- " + tab.title + " | " + tab.url;
+        }
+      });
+      await navigator.clipboard.writeText(tabInfo.join("\n"));
+      showToast("Copied", 1000);
     });
-    await navigator.clipboard.writeText(tabInfo.join("\n"));
-    showToast("Copied", 1000);
-  });
+  }
 });
