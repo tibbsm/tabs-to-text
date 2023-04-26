@@ -9,7 +9,7 @@ function showToast(message, duration) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const copyButton = document.getElementById("copyButton");
-  if (copyButton != null) {
+  if (copyButton != null && chrome.tabs != null) {
     copyButton.addEventListener("click", async () => {
       const tabs = await chrome.tabs.query({});
       const tabInfo = tabs.map((tab) => {
