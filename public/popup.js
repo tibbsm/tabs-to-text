@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (copyButton != null && chrome.tabs != null) {
     copyButton.addEventListener("click", async () => {
       const tabs = await chrome.tabs.query({});
-      const tabInfo = tabs.map((tab) => {
-        if (tab.url != null) {
+      const tabInfo = tabs
+        .filter((tab) => tab != null)
+        .map((tab) => {
           tabInfo += "- " + tab.title + " | " + tab.url;
-        }
-      });
+        });
       await navigator.clipboard.writeText(tabInfo.join("\n"));
       showToast("Copied", 1000);
     });
