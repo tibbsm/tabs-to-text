@@ -11,10 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (copyButton != null && chrome.tabs != null) {
     copyButton.addEventListener("click", async () => {
       const tabs = await chrome.tabs.query({});
-      console.log(tabs);
       const tabInfo = tabs
         .filter(({ title, url }) => title != null && url != null)
-        .map((tab) => "- " + tab.title + " | " + tab.url)
+        .map(({ title, url }) => "- " + title + " | " + url)
         .join("\n");
       await navigator.clipboard.writeText(tabInfo);
       showToast("Copied!", 1000);
