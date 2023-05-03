@@ -1,8 +1,8 @@
 const showToast = (message, duration) => {
-  const toast = document.createElement("div");
-  const removeToast = () => toast.remove();
-  toast.innerText = message;
-  document.body.appendChild(toast);
+  const toastDiv = document.createElement("div");
+  const removeToast = () => toastDiv.remove();
+  toastDiv.innerText = message;
+  document.body.appendChild(toastDiv);
   setTimeout(removeToast, duration);
 };
 
