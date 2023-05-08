@@ -6,7 +6,7 @@ const showToast = (message, duration) => {
   setTimeout(removeToast, duration);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+const foo = () => {
   const copyButton = document.getElementById("copyButton");
   if (copyButton != null && chrome.tabs != null) {
     copyButton.addEventListener("click", async () => {
@@ -19,4 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast("Copied!", 1000);
     });
   }
-});
+};
+
+document.addEventListener("DOMContentLoaded", foo);
