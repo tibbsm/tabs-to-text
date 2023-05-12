@@ -10,7 +10,8 @@ const copyButtonClickListener = async () => {
   if (chrome.tabs != null) {
     const tabs = await chrome.tabs.query({});
     const tabInfo = tabs
-      .filter(({ title, url }) => title != null && url != null)
+      // NOTE: some tabs may be skipped if the url can't be fetched
+      .filter(({ url }) => url != null)
       .map(({ title, url }) => "- " + title + " | " + url)
       .join("\n");
     await navigator.clipboard.writeText(tabInfo);
