@@ -12,7 +12,7 @@ const copyButtonClickListener = async () => {
     const tabInfo = tabs
       // NOTE: some tabs may be skipped if the url can't be fetched
       .filter(({ url }) => url != null)
-      .map(({ title, url }) => "- " + title + " | " + url)
+      .map(({ title, url }) => `- ${title} | ${url}`)
       .join("\n");
     await navigator.clipboard.writeText(tabInfo);
     showToast("Copied!", 1000);
