@@ -7,26 +7,26 @@ const showToast = (message, duration) => {
 };
 
 const copyButtonClickListener = async () => {
-  if (chrome.tabs != null) {
-    const tabs = await chrome.tabs.query({});
-    const tabInfo = tabs
-      .filter(({ url }) => url != null)
-      .map(({ title, url }) => `- ${title} | ${url}`)
-      .join("\n");
-    await navigator.clipboard.writeText(tabInfo);
-    showToast("Copied!", 1000);
-  } else {
+  if (chrome.tabs == null) {
     console.error("Could not access chrome.tabs");
+    return;
   }
+  const tabs = await chrome.tabs.query({});
+  const tabInfo = tabs
+    .filter(({ url }) => url != null)
+    .map(({ title, url }) => `- ${title} | ${url}`)
+    .join("\n");
+  await navigator.clipboard.writeText(tabInfo);
+  showToast("Copied!", 1000);
 };
 
 const setupCopyButton = () => {
   const copyButton = document.getElementById("copyButton");
-  if (copyButton != null) {
-    copyButton.addEventListener("click", copyButtonClickListener);
-  } else {
+  if (copyButton == null) {
     console.error("Could find the copy button element");
+    return;
   }
+  copyButton.addEventListener("click", copyButtonClickListener);
 };
 
 document.addEventListener("DOMContentLoaded", setupCopyButton);
