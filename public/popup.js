@@ -1,9 +1,8 @@
 const showToast = (message, duration) => {
   const toastDiv = document.createElement("div");
-  const removeToast = () => toastDiv.remove();
   toastDiv.innerText = message;
   document.body.appendChild(toastDiv);
-  setTimeout(removeToast, duration);
+  setTimeout(() => toastDiv.remove(), duration);
 };
 
 const copyButtonClickListener = async () => {
