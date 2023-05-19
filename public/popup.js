@@ -1,3 +1,4 @@
+// TODO: allow for custom formatting
 const showToast = (message, duration) => {
   const toastDiv = document.createElement("div");
   toastDiv.innerText = message;
