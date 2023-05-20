@@ -11,6 +11,7 @@ const copyButtonClickListener = async () => {
     console.error("Could not access chrome.tabs");
     return;
   }
+
   const tabs = await chrome.tabs.query({});
   const tabInfo = tabs
     .filter(({ url }) => url != null)
