@@ -18,7 +18,7 @@ const copyButtonClickListener = async () => {
     .map(({ title, url }) => `- ${title} | ${url}`)
     .join("\n");
   await navigator.clipboard.writeText(tabInfo);
-  showToast("Copied!", 1000);
+  showToast("Copied to clipboard!", 1000);
 };
 
 const setupCopyButton = () => {
