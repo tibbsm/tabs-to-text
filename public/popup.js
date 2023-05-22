@@ -23,10 +23,12 @@ const copyButtonClickListener = async () => {
 
 const setupCopyButton = () => {
   const copyButton = document.getElementById("copyButton");
+
   if (copyButton == null) {
     console.error("Could find the copy button element");
     return;
   }
+
   copyButton.addEventListener("click", copyButtonClickListener);
 };
 
