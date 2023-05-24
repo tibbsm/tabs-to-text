@@ -30,6 +30,14 @@ const setupCopyButton = () => {
   }
 
   copyButton.addEventListener("click", copyButtonClickListener);
+
+  // TODO: separate function
+  // TODO: save to local storage
+  // TODO: save to on update
+  // TODO: use in copy button click listener
+  const customFormatEl = document.getElementById("customFormat");
+  const customFormat = customFormatEl.textContent;
+  console.log(customFormat);
 };
 
 document.addEventListener("DOMContentLoaded", setupCopyButton);
