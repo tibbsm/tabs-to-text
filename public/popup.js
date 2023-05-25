@@ -11,7 +11,6 @@ const copyButtonClickListener = async () => {
     console.error("Could not access chrome.tabs");
     return;
   }
-
   const tabs = await chrome.tabs.query({});
   const tabInfo = tabs
     .filter(({ url }) => url != null)
@@ -21,9 +20,23 @@ const copyButtonClickListener = async () => {
   showToast("Copied to clipboard!", 1000);
 };
 
+// FIXME: ???
+const getCustomFormat = () => {
+  let customFormat = null;
+  chrome.storage.local.get("format", (items) => {
+    customFormat = items.format ?? null;
+  });
+  return customFormat;
+};
+
+// FIXME: ???
+const saveCustomFormat = (text) => {
+  chrome.storage.local.set({ format: text });
+  return customFormat;
+};
+
 const setupCopyButton = () => {
   const copyButton = document.getElementById("copyButton");
-
   if (copyButton == null) {
     console.error("Could find the copy button element");
     return;
@@ -35,8 +48,18 @@ const setupCopyButton = () => {
   // TODO: save to local storage
   // TODO: save to on update
   // TODO: use in copy button click listener
+  let customFormat = null;
   const customFormatEl = document.getElementById("customFormat");
-  const customFormat = customFormatEl.textContent;
+  customFormat = getCustomFormat();
+  customFormatEl.value = customFormat;
+  customFormatEl.addEventListener("input", () => {
+    saveCustomFormat(customFormatEl.value);
+    customFormat = customFormatEl.value;
+    showToast(customFormat ?? "asd", 1000);
+  });
+  setInterval(() => {
+    showToast(customFormat ?? "asd", 1000);
+  }, 1000);
   console.log(customFormat);
 };
 
