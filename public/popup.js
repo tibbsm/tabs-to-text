@@ -20,18 +20,20 @@ const copyButtonClickListener = async () => {
   showToast("Copied to clipboard!", 1000);
 };
 
-// FIXME: ???
-const getCustomFormat = () => {
-  let customFormat = null;
-  chrome.storage.local.get("format", (items) => {
-    customFormat = items.format ?? null;
+// FIXME: HERE
+const getCustomFormat = async () => {
+  let customFormat = await chrome.storage.local.get("format", (items) => {
+    showToast("get " + items.format, 10000);
+    return (customFormat = items.format ?? null);
   });
+  showToast("get 2 " + customFormat, 10000);
   return customFormat;
 };
 
 // FIXME: ???
 const saveCustomFormat = (text) => {
   chrome.storage.local.set({ format: text });
+  showToast("save" + getCustomFormat(), 10000);
   return customFormat;
 };
 
@@ -51,14 +53,16 @@ const setupCopyButton = () => {
   let customFormat = null;
   const customFormatEl = document.getElementById("customFormat");
   customFormat = getCustomFormat();
+  showToast(customFormat ?? "start", 10000);
   customFormatEl.value = customFormat;
   customFormatEl.addEventListener("input", () => {
     saveCustomFormat(customFormatEl.value);
     customFormat = customFormatEl.value;
-    showToast(customFormat ?? "asd", 1000);
+    showToast(customFormat ?? "null", 10000);
+    showToast(customFormat ?? "null", 10000);
   });
   setInterval(() => {
-    showToast(customFormat ?? "asd", 1000);
+    showToast(customFormatEl.value ?? "null", 1000);
   }, 1000);
   console.log(customFormat);
 };
