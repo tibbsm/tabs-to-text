@@ -36,6 +36,16 @@ const saveCustomFormat = (text) => {
   chrome.storage.local.set({ format: text });
 };
 
+const setupCustomFormatInput = async () => {
+  const customFormatEl = document.getElementById("customFormat");
+  const customFormat = await getCustomFormat();
+  customFormatEl.value = customFormat;
+
+  customFormatEl.addEventListener("input", () => {
+    saveCustomFormat(customFormatEl.value);
+  });
+};
+
 const setupCopyButton = async () => {
   const copyButton = document.getElementById("copyButton");
   if (copyButton == null) {
@@ -44,16 +54,11 @@ const setupCopyButton = async () => {
   }
 
   copyButton.addEventListener("click", copyButtonClickListener);
-
-  // TODO: separate function
-  let customFormat = null;
-  const customFormatEl = document.getElementById("customFormat");
-  customFormat = await getCustomFormat();
-  customFormatEl.value = customFormat;
-  customFormatEl.addEventListener("input", () => {
-    saveCustomFormat(customFormatEl.value);
-    customFormat = customFormatEl.value;
-  });
 };
 
-document.addEventListener("DOMContentLoaded", setupCopyButton);
+const setupPopup = () => {
+  setupCopyButton();
+  setupCustomFormatInput();
+};
+
+document.addEventListener("DOMContentLoaded", setupPopup);
