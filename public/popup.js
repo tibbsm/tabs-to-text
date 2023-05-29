@@ -1,8 +1,8 @@
-const showToast = (message, duration) => {
+const showToast = (message, durationMs) => {
   const toastDiv = document.createElement("div");
   toastDiv.innerText = message;
   document.body.appendChild(toastDiv);
-  setTimeout(() => toastDiv.remove(), duration);
+  setTimeout(() => toastDiv.remove(), durationMs);
 };
 
 const copyButtonClickListener = async () => {
@@ -38,9 +38,14 @@ const saveCustomFormat = (text) => {
 
 const setupCustomFormatInput = async () => {
   const customFormatEl = document.getElementById("customFormat");
+
+  if (customFormatEl == null) {
+    console.error("Could find the custom format input element");
+    return;
+  }
+
   const customFormat = await getCustomFormat();
   customFormatEl.value = customFormat;
-
   customFormatEl.addEventListener("input", () => {
     saveCustomFormat(customFormatEl.value);
   });
@@ -52,7 +57,6 @@ const setupCopyButton = async () => {
     console.error("Could find the copy button element");
     return;
   }
-
   copyButton.addEventListener("click", copyButtonClickListener);
 };
 
