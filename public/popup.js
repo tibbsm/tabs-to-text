@@ -44,8 +44,7 @@ const setupCustomFormatInput = async () => {
     return;
   }
 
-  const customFormat = await getCustomFormat();
-  customFormatEl.value = customFormat;
+  customFormatEl.value = await getCustomFormat();
   customFormatEl.addEventListener("input", () => {
     saveCustomFormat(customFormatEl.value);
   });
