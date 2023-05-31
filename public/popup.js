@@ -28,8 +28,8 @@ const copyButtonClickListener = async () => {
 };
 
 const getCustomFormat = async () => {
-  const customFormat = await chrome.storage.local.get("format");
-  return customFormat.format;
+  const { format } = await chrome.storage.local.get("format");
+  return format;
 };
 
 const saveCustomFormat = (text) => {
