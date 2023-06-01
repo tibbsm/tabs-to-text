@@ -12,7 +12,7 @@ const copyButtonClickListener = async () => {
   }
   const customFormat = await getCustomFormat();
   const tabs = await chrome.tabs.query({});
-  const tabInfo = tabs
+  const tabsAsText = tabs
     .filter(({ url }) => url != null)
     .map(({ title, url }) => {
       if (customFormat != null && customFormat != "") {
@@ -23,7 +23,7 @@ const copyButtonClickListener = async () => {
     })
     .join("\n");
 
-  await navigator.clipboard.writeText(tabInfo);
+  await navigator.clipboard.writeText(tabsAsText);
   showToast("Copied to clipboard!", 1000);
 };
 
