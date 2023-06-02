@@ -17,9 +17,8 @@ const copyButtonClickListener = async () => {
     .map(({ title, url }) => {
       if (customFormat != null && customFormat != "") {
         return customFormat.replace("${title}", title).replace("${url}", url);
-      } else {
-        return `- ${title} | ${url}`;
       }
+      return `- ${title} | ${url}`;
     })
     .join("\n");
 
