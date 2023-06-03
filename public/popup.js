@@ -1,6 +1,6 @@
-const showToast = (message, durationMs) => {
+const showToast = (msg, durationMs) => {
   const toastDiv = document.createElement("div");
-  toastDiv.innerText = message;
+  toastDiv.innerText = msg;
   document.body.appendChild(toastDiv);
   setTimeout(() => toastDiv.remove(), durationMs);
 };
