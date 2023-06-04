@@ -37,12 +37,10 @@ const saveCustomFormat = (text) => {
 
 const setupCustomFormatInput = async () => {
   const customFormatEl = document.getElementById("customFormat");
-
   if (customFormatEl == null) {
     console.error("Could find the custom format input element");
     return;
   }
-
   customFormatEl.value = await getCustomFormat();
   customFormatEl.addEventListener("input", () => {
     saveCustomFormat(customFormatEl.value);
