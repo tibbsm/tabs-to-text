@@ -30,8 +30,8 @@ const getCustomFormat = async () => {
   return format;
 };
 
-const saveCustomFormat = (text) => {
-  chrome.storage.local.set({ format: text });
+const saveCustomFormat = (format) => {
+  chrome.storage.local.set({ format });
 };
 
 const setupCustomFormatInput = async () => {
