@@ -10,8 +10,10 @@ const copyButtonClickListener = async () => {
     console.error("Could not access chrome.tabs");
     return;
   }
+
   const customFormat = await getCustomFormat();
   const tabs = await chrome.tabs.query({});
+
   const tabsAsText = tabs
     .filter(({ url }) => url != null)
     .map(({ title, url }) => {
@@ -21,6 +23,7 @@ const copyButtonClickListener = async () => {
       return `- ${title} | ${url}`;
     })
     .join("\n");
+
   await navigator.clipboard.writeText(tabsAsText);
   showToast("Copied to clipboard!", 1000);
 };
