@@ -8,5 +8,8 @@ Uses manifest v3.
 
 ```
 - (title) | (url)
-- (title) | (url)
 ```
+
+## Customizable format 
+
+Define your own custom format from the popup.
