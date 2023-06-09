@@ -13,3 +13,9 @@ Uses manifest v3.
 ## Customizable format 
 
 Define your own custom format from the popup.
+
+Use `${title}` and `${url}` as placeholders in the custom format.
+
+```
+- [${title}](${url})
+```
