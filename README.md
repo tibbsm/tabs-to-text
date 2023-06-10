@@ -7,7 +7,7 @@ Uses manifest v3.
 ## Default Copy format
 
 ```
-- (title) | (url)
+- (${title}) | (${url})
 ```
 
 ## Customizable format 
