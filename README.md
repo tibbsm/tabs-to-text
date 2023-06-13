@@ -19,3 +19,6 @@ Use `${title}` and `${url}` as placeholders in the custom format.
 ```
 - [${title}](${url})
 ```
+
+## TODOs
+- make it pretty
