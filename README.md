@@ -21,4 +21,4 @@ Use `${title}` and `${url}` as placeholders in the custom format.
 ```
 
 ## TODOs
-- make it pretty
+- make it prettier
