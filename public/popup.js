@@ -5,6 +5,15 @@ const showToast = (msg, durationMs) => {
   setTimeout(() => toastDiv.remove(), durationMs);
 };
 
+const getCustomFormat = async () => {
+  const { format } = await chrome.storage.local.get("format");
+  return format ?? '';
+};
+
+const saveCustomFormat = (format) => {
+  chrome.storage.local.set({ format });
+};
+
 const copyButtonClickListener = async () => {
   if (chrome.tabs == null) {
     console.error("Could not access chrome.tabs");
@@ -23,15 +32,6 @@ const copyButtonClickListener = async () => {
     .join("\n");
   await navigator.clipboard.writeText(tabsAsText);
   showToast("Copied to clipboard", 1000);
-};
-
-const getCustomFormat = async () => {
-  const { format } = await chrome.storage.local.get("format");
-  return format;
-};
-
-const saveCustomFormat = (format) => {
-  chrome.storage.local.set({ format });
 };
 
 const setupCustomFormatInput = async () => {
