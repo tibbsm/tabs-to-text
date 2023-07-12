@@ -27,7 +27,7 @@ const copyButtonClickListener = async () => {
       if (customFormat != null && customFormat !== "") {
         return customFormat.replace("${title}", title).replace("${url}", url);
       }
-      return `- ${title} | ${url}`;
+      return `- [${title}](${url})`;
     })
     .join("\n");
   await navigator.clipboard.writeText(tabsAsText);
