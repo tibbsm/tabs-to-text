@@ -15,7 +15,7 @@ const saveCustomFormat = (format) => {
 };
 
 const copyButtonClickListener = async () => {
-  if (chrome.tabs == null) {
+  if (chrome?.tabs == null) {
     console.error("Could not access chrome.tabs");
     return;
   }
