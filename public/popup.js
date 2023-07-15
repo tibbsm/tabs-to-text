@@ -49,7 +49,7 @@ const setupCustomFormatInput = async () => {
 const setupCopyButton = async () => {
   const copyButton = document.getElementById("copyButton");
   if (copyButton == null) {
-    console.error("Could find the copy button element");
+    console.error("Could not find the copy button element");
     return;
   }
   copyButton.addEventListener("click", copyButtonClickListener);
