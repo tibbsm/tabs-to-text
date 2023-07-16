@@ -17,5 +17,5 @@ Define your own custom format from the popup window.
 Use `${title}` and `${url}` as placeholders in the custom format.
 
 ```
-- [${title}](${url})
+- ${title} -> ${url}
 ```
