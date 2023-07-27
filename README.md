@@ -1,6 +1,6 @@
 # Tabs to text
 
-This Chrome extension allows you to quickly copy information from all open tabs to your clipboard.
+This Chrome extension allows you to quickly copy tab information from all open tabs to your clipboard.
 
 Uses manifest v3.
 
