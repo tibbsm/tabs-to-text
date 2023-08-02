@@ -30,7 +30,7 @@ const copyButtonClickListener = async () => {
       return `- [${title}](${url})`;
     })
     .join("\n");
-    
+
   await navigator.clipboard.writeText(tabsAsText);
   showToast("Copied to clipboard", 1000);
 };
@@ -53,6 +53,7 @@ const setupCopyButton = async () => {
     console.error("Could not find the copy button element");
     return;
   }
+  
   copyButton.addEventListener("click", copyButtonClickListener);
 };
 
