@@ -41,6 +41,7 @@ const setupCustomFormatInput = async () => {
     console.error("Could find the custom format input element");
     return;
   }
+  
   customFormatEl.value = await getCustomFormat();
   customFormatEl.addEventListener("input", () => {
     saveCustomFormat(customFormatEl.value);
