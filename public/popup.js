@@ -19,6 +19,7 @@ const copyButtonClickListener = async () => {
     console.error("Could not access chrome.tabs");
     return;
   }
+  
   const customFormat = await getCustomFormat();
   const tabs = await chrome.tabs.query({});
   const tabsAsText = tabs
@@ -41,7 +42,7 @@ const setupCustomFormatInput = async () => {
     console.error("Could find the custom format input element");
     return;
   }
-  
+
   customFormatEl.value = await getCustomFormat();
   customFormatEl.addEventListener("input", () => {
     saveCustomFormat(customFormatEl.value);
