@@ -7,7 +7,7 @@ const showToast = (msg, durationMs) => {
 
 const getCustomFormat = async () => {
   const { format } = await chrome.storage.local.get("format");
-  return format ?? '';
+  return format ?? "";
 };
 
 const saveCustomFormat = (format) => {
@@ -19,7 +19,7 @@ const copyButtonClickListener = async () => {
     console.error("Could not access chrome.tabs");
     return;
   }
-  
+
   const customFormat = await getCustomFormat();
   const tabs = await chrome.tabs.query({});
   const tabsAsText = tabs
@@ -55,7 +55,7 @@ const setupCopyButton = async () => {
     console.error("Could not find the copy button element");
     return;
   }
-  
+
   copyButton.addEventListener("click", copyButtonClickListener);
 };
 
