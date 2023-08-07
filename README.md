@@ -10,7 +10,7 @@ Uses manifest v3.
 - [${title}](${url})
 ```
 
-## Customizable format 
+## Customizable format
 
 Define your own custom format from the popup window.
 
