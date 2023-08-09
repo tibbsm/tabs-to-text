@@ -2,7 +2,7 @@
 
 This Chrome extension allows you to quickly copy tab information from all open tabs to your clipboard.
 
-Uses manifest v3.
+Uses Chrome extension manifest v3.
 
 ## Default Copy format
 
