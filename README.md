@@ -4,7 +4,7 @@ This Chrome extension allows you to quickly copy tab information from all open t
 
 Uses Chrome extension manifest v3.
 
-## Default Copy format
+## Default copy format
 
 ```
 - [${title}](${url})
