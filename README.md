@@ -14,7 +14,7 @@ Uses Chrome extension manifest v3.
 
 Define your own custom format from the popup window.
 
-Use `${title}` and `${url}` as placeholders in the custom format that you specify.
+Use `${title}` and `${url}` as placeholders in the custom format that you specify. Neither placeholders are required.
 
 ```
 - ${title} - ${url}
