@@ -6,7 +6,7 @@ Uses Chrome extension manifest v3.
 
 ## Default copy format
 
-Each tab will be listed on a new line.
+The data from each tab will be listed on a new line using the format specified.
 
 ```
 - [${title}](${url})
