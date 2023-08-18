@@ -4,9 +4,11 @@ This Chrome extension allows you to quickly copy tab information from all open t
 
 Uses Chrome extension manifest v3.
 
+The data from each tab will be listed on a new line using the format specified.
+
 ## Default copy format
 
-The data from each tab will be listed on a new line using the format specified.
+The default copy format is:
 
 ```
 - [${title}](${url})
