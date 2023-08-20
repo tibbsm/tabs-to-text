@@ -16,9 +16,9 @@ The default copy format is:
 
 ## Customizable copy format
 
-Define your own custom format from the extension's popup window.
+Define a custom format from the extension's popup window.
 
-Use `${title}` and `${url}` as placeholders in the custom format that you specify. Neither placeholders are required.
+Use `${title}` and `${url}` as placeholders in the custom format. Neither placeholders are required.
 
 ```
 - ${title} - ${url}
