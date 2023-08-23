@@ -18,7 +18,8 @@ The default copy format is:
 
 Define a custom format from the extension's popup window.
 
-Use `${title}` and `${url}` as placeholders in the custom format. Neither placeholders are required.
+- Use `${title}` and `${url}` as placeholders in the custom format.
+- Neither placeholders are required.
 
 ```
 - ${title} - ${url}
