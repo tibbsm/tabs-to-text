@@ -1,5 +1,5 @@
 {
-  "name": "Copy Tabs As Text",
+  "name": "Tabs to Text",
   "manifest_version": 3,
   "version": "1.0.0",
   "description": "Copy all tab URLs and page titles with one click",
