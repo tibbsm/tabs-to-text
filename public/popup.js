@@ -25,6 +25,7 @@ const copyButtonClickListener = async () => {
   const tabsAsText = tabs
     .filter(({ url }) => url != null)
     .map(({ title, url }) => {
+      // NOTE: customFormat should never be null/undefined
       if (customFormat != null && customFormat !== "") {
         return customFormat.replace("${title}", title).replace("${url}", url);
       }
