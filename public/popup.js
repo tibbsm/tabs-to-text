@@ -22,6 +22,7 @@ const copyButtonClickListener = async () => {
 
   const customFormat = await getCustomFormat();
   const tabs = await chrome.tabs.query({});
+  
   const tabsAsText = tabs
     .filter(({ url }) => url != null)
     .map(({ title, url }) => {
